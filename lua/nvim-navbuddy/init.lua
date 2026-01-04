@@ -89,7 +89,7 @@ local actions = require("nvim-navbuddy.actions")
 ---
 --- icons: table
 ---   Icons to show for captured symbols. Default icons assume that you
----   have nerd-fonts.
+---   have nerd-fonts. Set icons.enabled to enable or disable icons.
 ---
 --- use_default_mappings: boolean
 ---   If set to false, only mappings set by user are set. Else default mappings
@@ -167,6 +167,7 @@ local config = {
     },
   },
   icons = {
+    enabled = true,
     [1] = "󰈙 ",  -- File
     [2] = " ",  -- Module
     [3] = "󰌗 ",  -- Namespace
@@ -476,6 +477,9 @@ function navbuddy.setup(user_config)
         if navic.adapt_lsp_str_to_num(k) then
           config.icons[navic.adapt_lsp_str_to_num(k)] = v
         end
+      end
+      if user_config.icons.enabled ~= nil then
+        config.icons.enabled = user_config.icons.enabled
       end
     end
 

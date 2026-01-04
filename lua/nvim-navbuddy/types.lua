@@ -45,7 +45,7 @@
 ---@class Navbuddy.config
 ---@field window? WindowConfig
 ---@field node_markers? NodeMarkersConfig
----@field icons? table<number, string>
+---@field icons? table<number|string, string>
 ---@field use_default_mappings? boolean
 ---@field mappings? table<string, KeyMapping>
 ---@field lsp? LspConfig

@@ -35,7 +35,12 @@ local function fill_buffer(buf, node, config)
 
   local lines = {}
   for _, child_node in ipairs(parent.children) do
-    local text = " " .. config.icons[child_node.kind] .. child_node.name
+    local text
+    if config.icons.enabled then
+      text = " " .. config.icons[child_node.kind] .. child_node.name
+    else
+      text = " " .. child_node.name
+    end
     table.insert(lines, text)
   end
 
